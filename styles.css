@@ -1,3 +1,6 @@
+html {
+    scroll-behavior: smooth;
+}
 /* Minimalist Design Base */
 :root {
     --bg: #ffffff;
@@ -472,4 +475,135 @@ footer p {
         flex-direction: column;
         gap: 1.5rem;
     }
+}
+
+#contacto {
+    padding: 100px 20px 40px; /* Espacio amplio para elegancia */
+    text-align: center;
+    background: #ffffff;
+    border-top: 1px solid #f2f2f2;
+}
+
+.footer-title {
+    font-weight: 300;
+    font-size: 1.2rem;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    margin-bottom: 40px; /* Espacio hacia los iconos */
+    color: #1a1a1a;
+}
+
+.social-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px; /* Separación entre Instagram y Facebook */
+    margin-bottom: 40px;
+}
+
+.minimal-icon {
+    width: 20px; /* Tamaño pequeño y chic */
+    height: 20px;
+    fill: #1a1a1a;
+    transition: opacity 0.3s ease;
+}
+
+.social-link:hover .minimal-icon {
+    opacity: 0.4;
+}
+
+.copyright {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #cccccc;
+    text-transform: uppercase;
+}
+
+/* Ajuste móvil */
+@media (max-width: 768px) {
+    .footer-title {
+        font-size: 1rem;
+        letter-spacing: 4px;
+    }
+    .social-wrapper {
+        gap: 30px;
+    }
+}
+
+/* --- BASE & ORDEN --- */
+:root { --black: #1a1a1a; --white: #ffffff; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { 
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; 
+    overflow-x: hidden; 
+    color: var(--black);
+}
+
+/* --- ANIMACIÓN REVEAL (Dinamismo) --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* --- MENÚ HAMBURGUESA --- */
+.mobile-menu-btn {
+    display: none; 
+    position: fixed; top: 25px; right: 25px;
+    width: 28px; height: 18px;
+    z-index: 9999; flex-direction: column; justify-content: space-between;
+}
+.mobile-menu-btn span { width: 100%; height: 1px; background: var(--black); transition: 0.3s; }
+
+/* --- NAVEGACIÓN (Móvil First) --- */
+@media (max-width: 768px) {
+    .mobile-menu-btn { display: flex; }
+    
+    .main-nav {
+        position: fixed; top: 0; right: -100%;
+        width: 100%; height: 100vh;
+        background: rgba(255, 255, 255, 0.9); /* Transparencia */
+        backdrop-filter: blur(10px); /* Desenfoque dinámico */
+        display: flex; align-items: center; justify-content: center;
+        transition: 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+        z-index: 9998;
+    }
+
+    .main-nav.active { right: 0; }
+    .main-nav ul { flex-direction: column; text-align: center; gap: 2rem; }
+    .main-nav a { font-size: 1.2rem; text-decoration: none; color: var(--black); letter-spacing: 4px; text-transform: uppercase; }
+
+    /* Orden de Secciones en Móvil */
+    .portfolio-section { padding: 80px 25px; width: 100%; }
+    .gallery { display: flex; flex-direction: column; gap: 15px; }
+    .gallery-item { width: 100%; height: 400px; background-size: cover; background-position: center; }
+    
+    .business-project { display: flex; flex-direction: column; align-items: center; text-align: center; }
+}
+
+* Animación de icono X */
+.mobile-menu-btn.open span:nth-child(1) { transform: translateY(8.5px) rotate(45deg); }
+.mobile-menu-btn.open span:nth-child(2) { opacity: 0; }
+.mobile-menu-btn.open span:nth-child(3) { transform: translateY(-8.5px) rotate(-45deg); }
+
+/* Elimina el resaltado azul en móviles */
+a, 
+button, 
+.mobile-menu-btn, 
+.social-link {
+    -webkit-tap-highlight-color: transparent;
+    -webkit-touch-callout: none;
+    user-select: none;
+    outline: none;
+}
+
+/* Evita que se vea azul al mantener presionado */
+a:focus, 
+a:active {
+    background: none !important;
+    color: inherit;
 }
